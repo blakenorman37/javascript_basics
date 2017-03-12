@@ -1,13 +1,71 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script>
-      // JavaScript function definition here
-    </script> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   
   <body>
-    <!-- Your page here (can include more script tags) -->
-    
+    <h2 align="right" id="helloWorld">Hello World</h2>
+	<div align ="center">
+		<button type = "button" class = "btn btn-primary btn" onclick="moveHello()">Center Hello</button>
+	</div>
+		<h2 align="center" id="helloWorld3"></h2>
+		<h2 align="right" id="helloWorld2">Hello World</h2>
+	<div align="center">	
+		<button type = "button" class = "btn btn-primary btn" onclick="moveHelloWords()">Move Words</button>
+    </div>
+	
+	<h2 align="center" id="helloWorld4">Hello World</h2>
+	<div align="center">	
+		<button type = "button" class = "btn btn-primary btn" onclick="animateHello()">Alert Hello</button>
+    </div>
   </body>
+  <div id ="container">
+<div id ="animate"></div>
+  <script>
+  function moveHello()
+  {
+	var hello = document.getElementById("helloWorld");
+	hello.style.textAlign="center";
+  }
+  
+  var count = 0;
+  function moveHelloWords()
+  {
+	var hello = document.getElementById("helloWorld2").innerHTML;
+	var letters = hello.split(" ");
+	var length = letters.length;
+	var text = document.getElementById("helloWorld3").innerHTML;
+	document.getElementById("helloWorld2").innerHTML = letters[1];
+	document.getElementById("helloWorld3").innerHTML = text + " " + letters[0];
+	if (count == 2)
+	{
+		document.getElementById("helloWorld2").innerHTML = "Hello World";
+		document.getElementById("helloWorld3").innerHTML = "";
+		count = 0;
+	}
+	else if (count == 1)
+	{
+		document.getElementById("helloWorld2").innerHTML = "";
+		count++;
+	}
+	else
+	{
+		count++;
+	}
+  }
+  
+  function animateHello()
+  {
+	var str = document.getElementById("helloWorld4").innerHTML;
+	var alertString = str;
+	var end = 1;
+	for (var i = 0; i < str.length; i++)
+	{
+		alert(alertString.substring(0, end));
+		end++;
+	}
+  }
+  </script>
 </html>
